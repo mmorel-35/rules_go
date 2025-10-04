@@ -13,7 +13,7 @@ http_archive(
     ],
 )
 
-# The non-polyfill version of this is needed by rules_proto below.
+# The non-polyfill version of this is needed by protobuf below.
 http_archive(
     name = "bazel_features",
     sha256 = "d7787da289a7fb497352211ad200ec9f698822a9e0757a4976fd9f713ff372b3",
