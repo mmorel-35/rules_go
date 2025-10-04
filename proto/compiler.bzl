@@ -50,7 +50,11 @@ load(
 _PROTO_TOOLCHAIN_TYPE = "@com_google_protobuf//bazel/private:proto_toolchain_type"
 
 def _incompatible_toolchains_enabled():
-    return getattr(proto_common, "INCOMPATIBLE_ENABLE_PROTO_TOOLCHAIN_RESOLUTION", False)
+    # TODO: rules_go doesn't properly support proto toolchains yet. This is a
+    # misuse of the proto toolchain API. We should revisit this after the
+    # incompatible flag has been enabled by default and rules_go has been
+    # updated to properly use proto_common methods.
+    return False
 
 def _find_toolchain(ctx, legacy_attr, toolchain_type):
     if _incompatible_toolchains_enabled():
